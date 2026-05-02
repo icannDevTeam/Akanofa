@@ -30,7 +30,7 @@ def _spiral_node_pos(deg, r):
 # ============================================================
 # Shared HEAD (with security headers via meta + Tailwind config + styles)
 # ============================================================
-def head(title, description="Intelligent software, built for your business — Akanofa builds AI, cloud, mobile, security, and data solutions tailored to your business."):
+def head(title, description="Intelligent software, built for your business. Akanofa builds AI, cloud, mobile, security, and data solutions tailored to your business."):
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -375,7 +375,7 @@ QUOTE_MODAL = f"""    <!-- Get Started / Quote Modal -->
             <div class="sticky top-0 bg-gradient-to-r from-brand-dark to-brand-green p-6 flex items-center justify-between z-10">
                 <div>
                     <h3 id="quoteModalTitle" class="text-white text-xl font-bold">Let's Get Started</h3>
-                    <p class="text-white/70 text-sm mt-1">Tell us about your project — we reply within 24 hours.</p>
+                    <p class="text-white/70 text-sm mt-1">Tell us about your project. We reply within 24 hours.</p>
                 </div>
                 <button type="button" id="quoteModalClose" class="text-white/80 hover:text-white p-2" aria-label="Close">
                     <i data-lucide="x" class="w-6 h-6"></i>
@@ -1313,7 +1313,7 @@ SERVICES_BODY = subhero(
         </div>
     </section>
 
-    <!-- Engagement model — horizontal flow infographic -->
+    <!-- Engagement model, horizontal flow infographic -->
     <section class="bg-white py-24 relative overflow-hidden">
         <div class="absolute inset-0 dot-pattern"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1410,7 +1410,7 @@ ABOUT_BODY = subhero(
                     <span class="inline-block bg-brand-yellow-light text-brand-dark px-4 py-1.5 rounded-full text-sm font-semibold mb-4">Our Story</span>
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-6 leading-tight">A partnership, <span class="text-gradient">not just a project</span></h2>
                     <p class="text-gray-500 text-lg mb-5 leading-relaxed">At Akanofa, we don't just build software \u2014 we become an extension of your team. Our approach combines deep technical expertise with genuine partnership, ensuring that every solution we create is perfectly aligned with your business goals.</p>
-                    <p class="text-gray-500 mb-7 leading-relaxed">Founded in Jakarta on the principle that technology should empower \u2014 not complicate \u2014 we've helped over 150 businesses across 15 countries transform their operations through intelligent software that delivers measurable results.</p>
+                    <p class="text-gray-500 mb-7 leading-relaxed">Founded in Jakarta on the principle that technology should empower \u2014 not complicate \u2014 we've helped businesses across many countries transform their operations through intelligent software that delivers measurable results.</p>
                     <div class="grid sm:grid-cols-2 gap-3 mb-8">
                         <div class="flex items-center gap-3 p-3 rounded-xl bg-brand-cream"><div class="w-9 h-9 bg-brand-green/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="check" class="w-5 h-5 text-brand-green"></i></div><span class="text-brand-dark font-medium text-sm">End-to-end solutions</span></div>
                         <div class="flex items-center gap-3 p-3 rounded-xl bg-brand-cream"><div class="w-9 h-9 bg-brand-green/10 rounded-lg flex items-center justify-center shrink-0"><i data-lucide="check" class="w-5 h-5 text-brand-green"></i></div><span class="text-brand-dark font-medium text-sm">Agile methodology</span></div>
