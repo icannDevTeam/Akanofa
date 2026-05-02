@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Intelligent software, built for your business — Akanofa builds AI, cloud, mobile, security, and data solutions tailored to your business.">
+    <meta name="theme-color" content="#0B3D2E">
+    <!-- Security headers (defense-in-depth; primary headers should be set by host) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://formsubmit.co; frame-src https://www.google.com; form-action 'self' https://formsubmit.co; base-uri 'self'; object-src 'none'; upgrade-insecure-requests;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
+    <title>Why Akanofa | Akanofa</title>
+    <link rel="icon" type="image/png" href="images/Logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0B3D2E',
+                        'brand-green': '#14694A',
+                        'brand-light': '#1A8C5E',
+                        'brand-yellow': '#F5E6A3',
+                        'brand-yellow-light': '#FBF4D8',
+                        'brand-cream': '#FFFDF5',
+                    },
+                    fontFamily: { 'display': ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        .gradient-hero { background: linear-gradient(155deg, #0B3D2E 0%, #14694A 40%, #1A8C5E 70%, #0B3D2E 100%); }
+        .gradient-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px -12px rgba(11, 61, 46, 0.25); }
+        .gradient-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .text-gradient { background: linear-gradient(135deg, #1A8C5E, #F5E6A3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .dot-pattern { background-image: radial-gradient(circle, #14694A 1px, transparent 1px); background-size: 30px 30px; opacity: 0.06; }
+        .float-animation { animation: float 6s ease-in-out infinite; }
+        .float-animation-delayed { animation: float 6s ease-in-out 2s infinite; }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+        @keyframes fadeInUp { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-fade-in-up-delay-1 { animation: fadeInUp 0.8s 0.2s ease-out forwards; opacity: 0; }
+        .animate-fade-in-up-delay-2 { animation: fadeInUp 0.8s 0.4s ease-out forwards; opacity: 0; }
+        .animate-fade-in-up-delay-3 { animation: fadeInUp 0.8s 0.6s ease-out forwards; opacity: 0; }
+        @keyframes pulse-ring { 0%{transform:scale(1);opacity:.4} 100%{transform:scale(1.5);opacity:0} }
+        .pulse-ring::before { content:''; position:absolute; inset:-8px; border-radius:50%; border:2px solid #F5E6A3; animation: pulse-ring 2s ease-out infinite; }
+        .nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+        .counter-value { font-variant-numeric: tabular-nums; }
+        .marquee-track { display: flex; animation: marquee 30s linear infinite; }
+        @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+        .service-icon-wrap { transition: all 0.3s ease; }
+        .gradient-card:hover .service-icon-wrap { background: #F5E6A3; color: #0B3D2E; }
+        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+        .mobile-menu.active { transform: translateX(0); }
+        ::selection { background: #F5E6A3; color: #0B3D2E; }
+        /* Modal */
+        .modal-backdrop { background: rgba(11,61,46,0.75); backdrop-filter: blur(4px); }
+        .modal-enter { animation: modalIn 0.25s ease-out; }
+        @keyframes modalIn { from{opacity:0;transform:scale(.95) translateY(10px)} to{opacity:1;transform:scale(1) translateY(0)} }
+        /* Spiral process */
+        .spiral-svg .spiral-path { stroke-dasharray: 2400; stroke-dashoffset: 2400; transition: stroke-dashoffset 2.5s ease-out; }
+        .spiral-svg.in-view .spiral-path { stroke-dashoffset: 0; }
+        .spiral-node { opacity: 0; transform: scale(.6); transform-origin: center; transition: opacity .6s ease, transform .6s cubic-bezier(.34,1.56,.64,1); }
+        .spiral-svg.in-view .spiral-node { opacity: 1; transform: scale(1); }
+        .spiral-svg.in-view .spiral-node.n1 { transition-delay: .4s; }
+        .spiral-svg.in-view .spiral-node.n2 { transition-delay: .8s; }
+        .spiral-svg.in-view .spiral-node.n3 { transition-delay: 1.2s; }
+        .spiral-svg.in-view .spiral-node.n4 { transition-delay: 1.6s; }
+        .spiral-svg.in-view .spiral-node.n5 { transition-delay: 2.0s; }
+        .spiral-svg.in-view .spiral-node.n6 { transition-delay: 2.4s; }
+        .process-card { opacity: 0; transform: translateY(20px); transition: all .6s cubic-bezier(.4,0,.2,1); }
+        .process-card.in-view { opacity: 1; transform: translateY(0); }
+        /* Reveal */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s cubic-bezier(.4,0,.2,1); }
+        .reveal.in-view { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity .7s ease, transform .7s cubic-bezier(.4,0,.2,1); }
+        .reveal-left.in-view { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity .7s ease, transform .7s cubic-bezier(.4,0,.2,1); }
+        .reveal-right.in-view { opacity: 1; transform: translateX(0); }
+        /* Glow */
+        .glow-ring { position: relative; }
+        .glow-ring::after { content:''; position:absolute; inset:-2px; border-radius:inherit; padding:2px; background: linear-gradient(135deg, #F5E6A3, #1A8C5E, #F5E6A3); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity .4s; }
+        .glow-ring:hover::after { opacity: 1; }
+        /* Map frame */
+        .map-frame { filter: grayscale(.2) contrast(1.05); transition: filter .4s; }
+        .map-frame:hover { filter: grayscale(0) contrast(1); }
+        /* Tilt cards */
+        .tilt-card { transition: transform .5s cubic-bezier(.4,0,.2,1), box-shadow .5s; transform-style: preserve-3d; }
+        .tilt-card:hover { transform: perspective(1000px) rotateX(2deg) rotateY(-3deg) translateY(-6px); box-shadow: 0 30px 60px -20px rgba(11,61,46,.35); }
+        /* Pulsing dot */
+        .live-dot { position: relative; width: 10px; height: 10px; border-radius: 50%; background: #22c55e; }
+        .live-dot::before { content:''; position:absolute; inset:-4px; border-radius:50%; background: #22c55e; opacity:.4; animation: livePulse 1.8s ease-out infinite; }
+        @keyframes livePulse { 0%{transform:scale(.6);opacity:.6} 100%{transform:scale(2);opacity:0} }
+    </style>
+</head>
+<body class="bg-white text-gray-900 overflow-x-hidden">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/70 nav-blur border-b border-white/40 shadow-sm shadow-brand-dark/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-6">
+                <!-- Logo + Wordmark -->
+                <a href="/" class="flex items-center gap-2 group shrink-0">
+                    <img src="images/Logo.png" alt="Akanofa" class="h-16 w-auto group-hover:scale-110 transition-transform drop-shadow-sm">
+                    <span class="text-brand-dark font-extrabold text-lg tracking-tight hidden sm:inline">Akanofa</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-14 lg:gap-20 mx-auto">
+                    <a href="/" class="nav-link text-brand-dark/75 hover:text-brand-green transition-colors text-sm font-semibold">Home</a>
+                    <a href="services.html" class="nav-link text-brand-dark/75 hover:text-brand-green transition-colors text-sm font-semibold">Services</a>
+                    <a href="about.html" class="nav-link text-brand-dark/75 hover:text-brand-green transition-colors text-sm font-semibold">About</a>
+                    <a href="why-us.html" class="nav-link text-brand-green transition-colors text-sm font-semibold">Why Us</a>
+                    <a href="contact.html" class="nav-link text-brand-dark/75 hover:text-brand-green transition-colors text-sm font-semibold">Contact</a>
+                </div>
+
+                <!-- Desktop CTA -->
+                <button type="button" data-open-quote class="hidden md:inline-flex shrink-0 bg-brand-dark text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-green transition-all duration-300 hover:shadow-lg shadow-md shadow-brand-dark/20">Get Started</button>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="menuToggle" class="md:hidden text-brand-dark p-2" aria-label="Open menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] bg-brand-dark">
+        <div class="flex justify-between items-center p-6">
+            <a href="/" class="flex items-center">
+                <img src="images/Logo.png" alt="Akanofa" class="h-9 w-auto">
+            </a>
+            <button id="menuClose" class="text-white p-2" aria-label="Close menu">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <div class="flex flex-col items-center gap-6 mt-16">
+            <a href="/" class="mobile-link text-white hover:text-brand-yellow text-2xl font-medium transition-colors">Home</a>
+            <a href="services.html" class="mobile-link text-white hover:text-brand-yellow text-2xl font-medium transition-colors">Services</a>
+            <a href="about.html" class="mobile-link text-white hover:text-brand-yellow text-2xl font-medium transition-colors">About</a>
+            <a href="why-us.html" class="mobile-link text-brand-yellow text-2xl font-medium transition-colors">Why Us</a>
+            <a href="contact.html" class="mobile-link text-white hover:text-brand-yellow text-2xl font-medium transition-colors">Contact</a>
+            <button type="button" data-open-quote class="mt-8 bg-brand-yellow text-brand-dark px-8 py-3 rounded-full text-lg font-semibold hover:bg-white transition-all">Get Started</button>
+        </div>
+    </div>
+    <!-- Page Hero -->
+    <section class="gradient-hero relative pt-32 pb-20 overflow-hidden">
+        <div class="absolute inset-0 dot-pattern"></div>
+        <div class="absolute top-20 right-10 w-72 h-72 bg-brand-yellow/10 rounded-full blur-3xl float-animation"></div>
+        <div class="absolute bottom-10 left-10 w-80 h-80 bg-brand-yellow/5 rounded-full blur-3xl float-animation-delayed"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-brand-yellow text-sm font-medium mb-5">
+                <span class="w-2 h-2 bg-brand-yellow rounded-full animate-pulse"></span>
+                Why Akanofa
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-5">What <span class="text-brand-yellow">sets us apart</span></h1>
+            <p class="text-lg text-white/70 max-w-2xl mx-auto">We combine innovation, precision, and partnership to deliver outcomes that matter.</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 leading-none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" fill="#ffffff" preserveAspectRatio="none" class="w-full h-12 sm:h-16">
+                <path d="M0,40L60,42C120,44,240,48,360,46C480,44,600,36,720,34C840,32,960,36,1080,40C1200,44,1320,48,1380,50L1440,52L1440,80L0,80Z"></path>
+            </svg>
+        </div>
+    </section>
+    <!-- 4 Differentiators (improved with images) -->
+    <section class="bg-brand-dark py-24 relative overflow-hidden">
+        <div class="absolute inset-0 dot-pattern" style="opacity:0.03;"></div>
+        <div class="absolute -top-40 -right-40 w-[500px] h-[500px] bg-brand-yellow/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-brand-green/15 rounded-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="reveal group bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl p-7 hover:border-brand-yellow/40 hover:-translate-y-1 transition-all">
+                    <div class="text-5xl font-extrabold text-brand-yellow/20 mb-1">01</div>
+                    <div class="w-14 h-14 bg-brand-yellow/15 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-brand-yellow group-hover:text-brand-dark transition-all relative pulse-ring text-brand-yellow"><i data-lucide="zap" class="w-7 h-7"></i></div>
+                    <h3 class="text-white font-bold text-lg mb-2">Lightning Delivery</h3>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">Average MVP shipped in 6 weeks. Fast cycles without compromising quality.</p>
+                    <div class="flex items-baseline gap-2 pt-3 border-t border-white/10">
+                        <span class="text-2xl font-extrabold text-brand-yellow">2.4x</span>
+                        <span class="text-xs text-white/40">faster than industry avg</span>
+                    </div>
+                </div>
+                <div class="reveal group bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl p-7 hover:border-brand-yellow/40 hover:-translate-y-1 transition-all" style="transition-delay:.05s">
+                    <div class="text-5xl font-extrabold text-brand-yellow/20 mb-1">02</div>
+                    <div class="w-14 h-14 bg-brand-yellow/15 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-brand-yellow group-hover:text-brand-dark transition-all text-brand-yellow"><i data-lucide="users" class="w-7 h-7"></i></div>
+                    <h3 class="text-white font-bold text-lg mb-2">Dedicated Squads</h3>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">A team that operates as your own tech department — not contractors.</p>
+                    <div class="flex items-baseline gap-2 pt-3 border-t border-white/10">
+                        <span class="text-2xl font-extrabold text-brand-yellow">98%</span>
+                        <span class="text-xs text-white/40">client retention rate</span>
+                    </div>
+                </div>
+                <div class="reveal group bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl p-7 hover:border-brand-yellow/40 hover:-translate-y-1 transition-all" style="transition-delay:.1s">
+                    <div class="text-5xl font-extrabold text-brand-yellow/20 mb-1">03</div>
+                    <div class="w-14 h-14 bg-brand-yellow/15 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-brand-yellow group-hover:text-brand-dark transition-all text-brand-yellow"><i data-lucide="lock" class="w-7 h-7"></i></div>
+                    <h3 class="text-white font-bold text-lg mb-2">Enterprise Security</h3>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">Bank-grade protocols, OWASP-aligned reviews, and full SOC 2 readiness.</p>
+                    <div class="flex items-baseline gap-2 pt-3 border-t border-white/10">
+                        <span class="text-2xl font-extrabold text-brand-yellow">0</span>
+                        <span class="text-xs text-white/40">security incidents to date</span>
+                    </div>
+                </div>
+                <div class="reveal group bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl p-7 hover:border-brand-yellow/40 hover:-translate-y-1 transition-all" style="transition-delay:.15s">
+                    <div class="text-5xl font-extrabold text-brand-yellow/20 mb-1">04</div>
+                    <div class="w-14 h-14 bg-brand-yellow/15 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-brand-yellow group-hover:text-brand-dark transition-all text-brand-yellow"><i data-lucide="refresh-cw" class="w-7 h-7"></i></div>
+                    <h3 class="text-white font-bold text-lg mb-2">Continuous Evolution</h3>
+                    <p class="text-white/50 text-sm leading-relaxed mb-4">We don't disappear at launch — we iterate, optimize, and grow alongside you.</p>
+                    <div class="flex items-baseline gap-2 pt-3 border-t border-white/10">
+                        <span class="text-2xl font-extrabold text-brand-yellow">24/7</span>
+                        <span class="text-xs text-white/40">monitoring &amp; support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison infographic -->
+    <section class="bg-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0 dot-pattern"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+                <span class="inline-block bg-brand-yellow-light text-brand-dark px-4 py-1.5 rounded-full text-sm font-semibold mb-4">The Difference</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-3">Akanofa vs. <span class="text-gradient">a typical agency</span></h2>
+                <p class="text-gray-500 text-lg">Why our clients keep choosing us, project after project.</p>
+            </div>
+            <div class="reveal rounded-3xl border border-gray-100 shadow-2xl shadow-brand-dark/10 overflow-hidden bg-white">
+                <div class="grid grid-cols-3 bg-brand-dark text-white">
+                    <div class="p-5 font-semibold text-sm uppercase tracking-wider text-white/60">Comparison</div>
+                    <div class="p-5 text-center font-bold text-sm uppercase tracking-wider bg-brand-green text-brand-yellow">Akanofa</div>
+                    <div class="p-5 text-center font-semibold text-sm uppercase tracking-wider text-white/60">Typical Agency</div>
+                </div>
+                <div class="divide-y divide-gray-100 text-sm">
+                    <div class="grid grid-cols-3 items-center"><div class="p-5 font-medium text-brand-dark">Time to first demo</div><div class="p-5 text-center bg-brand-green/5 text-brand-dark font-bold">7 days</div><div class="p-5 text-center text-gray-400">3–4 weeks</div></div>
+                    <div class="grid grid-cols-3 items-center"><div class="p-5 font-medium text-brand-dark">Dedicated team</div><div class="p-5 text-center bg-brand-green/5"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green inline"></i></div><div class="p-5 text-center"><i data-lucide="x-circle" class="w-5 h-5 text-gray-300 inline"></i></div></div>
+                    <div class="grid grid-cols-3 items-center"><div class="p-5 font-medium text-brand-dark">Direct Slack access</div><div class="p-5 text-center bg-brand-green/5"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green inline"></i></div><div class="p-5 text-center"><i data-lucide="x-circle" class="w-5 h-5 text-gray-300 inline"></i></div></div>
+                    <div class="grid grid-cols-3 items-center"><div class="p-5 font-medium text-brand-dark">Transparent pricing</div><div class="p-5 text-center bg-brand-green/5"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green inline"></i></div><div class="p-5 text-center text-gray-400">Often hidden fees</div></div>
+                    <div class="grid grid-cols-3 items-center"><div class="p-5 font-medium text-brand-dark">Post-launch support</div><div class="p-5 text-center bg-brand-green/5 text-brand-dark font-bold">24/7 included</div><div class="p-5 text-center text-gray-400">Extra contract</div></div>
+                    <div class="grid grid-cols-3 items-center"><div class="p-5 font-medium text-brand-dark">Source code ownership</div><div class="p-5 text-center bg-brand-green/5 text-brand-dark font-bold">100% yours</div><div class="p-5 text-center text-gray-400">Often shared</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance metrics infographic -->
+    <section class="bg-brand-cream py-24 relative overflow-hidden">
+        <div class="absolute inset-0 dot-pattern" style="opacity:.05"></div>
+        <div class="absolute top-1/4 right-0 w-96 h-96 bg-brand-yellow/15 rounded-full blur-3xl"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-14 items-center">
+                <div class="reveal-left">
+                    <span class="inline-block bg-white text-brand-dark px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-gray-200">Proven Performance</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-5 leading-tight">Numbers that <span class="text-gradient">speak louder</span> than promises</h2>
+                    <p class="text-gray-500 text-lg mb-8 leading-relaxed">We benchmark every project against industry standards. Here's how Akanofa stacks up across the metrics that matter most to our clients.</p>
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-sm font-semibold text-brand-dark">Code quality score</span><span class="text-sm font-bold text-brand-green">96 / 100</span></div>
+                            <div class="h-2.5 bg-white rounded-full overflow-hidden border border-gray-100"><div class="h-full bg-gradient-to-r from-brand-green to-brand-light rounded-full" style="width:96%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-sm font-semibold text-brand-dark">On-time delivery</span><span class="text-sm font-bold text-brand-green">98%</span></div>
+                            <div class="h-2.5 bg-white rounded-full overflow-hidden border border-gray-100"><div class="h-full bg-gradient-to-r from-brand-green to-brand-light rounded-full" style="width:98%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-sm font-semibold text-brand-dark">Client satisfaction (NPS)</span><span class="text-sm font-bold text-brand-green">+72</span></div>
+                            <div class="h-2.5 bg-white rounded-full overflow-hidden border border-gray-100"><div class="h-full bg-gradient-to-r from-brand-green to-brand-light rounded-full" style="width:92%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-sm font-semibold text-brand-dark">Test coverage (avg)</span><span class="text-sm font-bold text-brand-green">88%</span></div>
+                            <div class="h-2.5 bg-white rounded-full overflow-hidden border border-gray-100"><div class="h-full bg-gradient-to-r from-brand-green to-brand-light rounded-full" style="width:88%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2"><span class="text-sm font-semibold text-brand-dark">Avg. uptime</span><span class="text-sm font-bold text-brand-green">99.97%</span></div>
+                            <div class="h-2.5 bg-white rounded-full overflow-hidden border border-gray-100"><div class="h-full bg-gradient-to-r from-brand-green to-brand-light rounded-full" style="width:99%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-right">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=70" alt="Engineers reviewing performance dashboards" loading="lazy" class="w-full rounded-3xl shadow-2xl shadow-brand-dark/20">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-2xl border border-gray-100 max-w-[220px] hidden sm:block">
+                            <div class="flex items-center gap-2 mb-1"><div class="w-8 h-8 bg-brand-green/10 rounded-lg flex items-center justify-center"><i data-lucide="trending-up" class="w-4 h-4 text-brand-green"></i></div><span class="text-xs font-bold uppercase tracking-wider text-brand-dark">Avg. ROI</span></div>
+                            <div class="text-3xl font-extrabold text-brand-dark mt-2">340%</div>
+                            <div class="text-xs text-gray-500 mt-0.5">across our last 50 launches</div>
+                        </div>
+                        <div class="absolute -top-5 -right-5 bg-brand-yellow text-brand-dark px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2 hidden sm:flex">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                            <div>
+                                <div class="text-xs font-semibold leading-none">Top Rated</div>
+                                <div class="text-xs text-brand-dark/70 mt-0.5">Clutch 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted by -->
+    <section class="bg-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0 dot-pattern"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+                <span class="inline-block bg-brand-yellow-light text-brand-dark px-4 py-1.5 rounded-full text-sm font-semibold mb-4">Trusted Partners</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-dark mb-3">Organizations that <span class="text-gradient">trust our work</span></h2>
+                <p class="text-gray-500 text-lg">Education and healthcare leaders we're proud to partner with.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="reveal bg-white border border-gray-100 rounded-3xl p-7 hover:shadow-2xl hover:shadow-brand-dark/10 hover:-translate-y-1 transition-all flex flex-col">
+                    <div class="h-16 mb-4 flex items-center"><img src="images/sutomo.jpeg" alt="Sutomo logo" loading="lazy" class="max-h-16 w-auto object-contain"></div>
+                    <div class="text-xs uppercase tracking-wider text-brand-green font-bold mb-1">Education</div>
+                    <div class="text-lg font-extrabold text-brand-dark mb-2 leading-snug">Sutomo</div>
+                    <p class="text-gray-500 text-sm leading-relaxed mt-auto">Trusted technology partner supporting modern learning operations.</p>
+                </div>
+                <div class="reveal bg-white border border-gray-100 rounded-3xl p-7 hover:shadow-2xl hover:shadow-brand-dark/10 hover:-translate-y-1 transition-all flex flex-col" style="transition-delay:.05s">
+                    <div class="h-16 mb-4 flex items-center"><img src="images/sentramedika.png" alt="Sentra Medika logo" loading="lazy" class="max-h-16 w-auto object-contain"></div>
+                    <div class="text-xs uppercase tracking-wider text-brand-green font-bold mb-1">Healthcare</div>
+                    <div class="text-lg font-extrabold text-brand-dark mb-2 leading-snug">Sentra Medika</div>
+                    <p class="text-gray-500 text-sm leading-relaxed mt-auto">Reliable systems supporting patient care and clinical workflows.</p>
+                </div>
+                <div class="reveal bg-gradient-to-br from-brand-dark to-brand-green text-white rounded-3xl p-7 shadow-xl shadow-brand-dark/20 flex flex-col" style="transition-delay:.1s">
+                    <div class="h-16 mb-4 flex items-center"><div class="w-14 h-14 rounded-2xl bg-brand-yellow text-brand-dark flex items-center justify-center font-extrabold text-lg">BN</div></div>
+                    <div class="text-xs uppercase tracking-wider text-brand-yellow font-bold mb-1">Higher Education</div>
+                    <div class="text-lg font-extrabold text-white mb-2 leading-snug">BINUS</div>
+                    <p class="text-white/70 text-sm leading-relaxed mt-auto">Engineering excellence for one of Indonesia's leading universities.</p>
+                </div>
+                <div class="reveal bg-white border border-gray-100 rounded-3xl p-7 hover:shadow-2xl hover:shadow-brand-dark/10 hover:-translate-y-1 transition-all flex flex-col" style="transition-delay:.15s">
+                    <div class="h-16 mb-4 flex items-center"><img src="images/deglogo.jpeg" alt="Dynamic Education logo" loading="lazy" class="max-h-16 w-auto object-contain"></div>
+                    <div class="text-xs uppercase tracking-wider text-brand-green font-bold mb-1">EdTech</div>
+                    <div class="text-lg font-extrabold text-brand-dark mb-2 leading-snug">Dynamic Education</div>
+                    <p class="text-gray-500 text-sm leading-relaxed mt-auto">Custom platforms that scale with growing learner communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & recognition -->
+    <section class="bg-brand-cream py-16 relative overflow-hidden border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8 reveal">
+                <span class="text-xs uppercase tracking-widest font-semibold text-gray-400">Certifications &amp; Recognition</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="reveal flex flex-col items-center justify-center bg-white rounded-2xl p-5 border border-gray-100 hover:shadow-lg transition-all"><i data-lucide="shield-check" class="w-7 h-7 text-brand-green mb-2"></i><span class="text-xs font-bold text-brand-dark text-center">ISO 27001<br>Ready</span></div>
+                <div class="reveal flex flex-col items-center justify-center bg-white rounded-2xl p-5 border border-gray-100 hover:shadow-lg transition-all" style="transition-delay:.05s"><i data-lucide="award" class="w-7 h-7 text-brand-green mb-2"></i><span class="text-xs font-bold text-brand-dark text-center">AWS Advanced<br>Tier</span></div>
+                <div class="reveal flex flex-col items-center justify-center bg-white rounded-2xl p-5 border border-gray-100 hover:shadow-lg transition-all" style="transition-delay:.1s"><i data-lucide="badge-check" class="w-7 h-7 text-brand-green mb-2"></i><span class="text-xs font-bold text-brand-dark text-center">SOC 2<br>Type II Aligned</span></div>
+                <div class="reveal flex flex-col items-center justify-center bg-white rounded-2xl p-5 border border-gray-100 hover:shadow-lg transition-all" style="transition-delay:.15s"><i data-lucide="trophy" class="w-7 h-7 text-brand-green mb-2"></i><span class="text-xs font-bold text-brand-dark text-center">Clutch Top<br>B2B 2025</span></div>
+                <div class="reveal flex flex-col items-center justify-center bg-white rounded-2xl p-5 border border-gray-100 hover:shadow-lg transition-all" style="transition-delay:.2s"><i data-lucide="star" class="w-7 h-7 text-brand-green mb-2"></i><span class="text-xs font-bold text-brand-dark text-center">GoodFirms<br>5.0 Rated</span></div>
+                <div class="reveal flex flex-col items-center justify-center bg-white rounded-2xl p-5 border border-gray-100 hover:shadow-lg transition-all" style="transition-delay:.25s"><i data-lucide="briefcase" class="w-7 h-7 text-brand-green mb-2"></i><span class="text-xs font-bold text-brand-dark text-center">PMDN<br>KBLI 58200</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yellow commitments band -->
+    <section class="bg-brand-yellow py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10 reveal">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark">What we promise <span class="underline decoration-brand-green decoration-4 underline-offset-4">in writing</span></h2>
+                <p class="text-brand-dark/70 mt-2 text-sm sm:text-base">No vanity metrics. Just the commitments we make to every client.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="reveal text-center bg-white/40 rounded-2xl p-6 hover:bg-white/70 transition-colors backdrop-blur-sm">
+                    <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-brand-dark text-brand-yellow flex items-center justify-center"><i data-lucide="file-lock-2" class="w-7 h-7"></i></div>
+                    <div class="text-base sm:text-lg font-extrabold text-brand-dark leading-snug">NDA &amp; Code Ownership</div>
+                    <div class="text-brand-dark/65 text-xs sm:text-sm mt-1">Signed before kickoff. You own 100% of the IP.</div>
+                </div>
+                <div class="reveal text-center bg-white/40 rounded-2xl p-6 hover:bg-white/70 transition-colors backdrop-blur-sm" style="transition-delay:.05s">
+                    <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-brand-dark text-brand-yellow flex items-center justify-center"><i data-lucide="shield-check" class="w-7 h-7"></i></div>
+                    <div class="text-base sm:text-lg font-extrabold text-brand-dark leading-snug">Security-First Builds</div>
+                    <div class="text-brand-dark/65 text-xs sm:text-sm mt-1">OWASP, encrypted by default, audit logs included.</div>
+                </div>
+                <div class="reveal text-center bg-white/40 rounded-2xl p-6 hover:bg-white/70 transition-colors backdrop-blur-sm" style="transition-delay:.1s">
+                    <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-brand-dark text-brand-yellow flex items-center justify-center"><i data-lucide="message-square-reply" class="w-7 h-7"></i></div>
+                    <div class="text-base sm:text-lg font-extrabold text-brand-dark leading-snug">24-Hour Response</div>
+                    <div class="text-brand-dark/65 text-xs sm:text-sm mt-1">Every message answered within one business day.</div>
+                </div>
+                <div class="reveal text-center bg-white/40 rounded-2xl p-6 hover:bg-white/70 transition-colors backdrop-blur-sm" style="transition-delay:.15s">
+                    <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-brand-dark text-brand-yellow flex items-center justify-center"><i data-lucide="receipt-text" class="w-7 h-7"></i></div>
+                    <div class="text-base sm:text-lg font-extrabold text-brand-dark leading-snug">Transparent Pricing</div>
+                    <div class="text-brand-dark/65 text-xs sm:text-sm mt-1">Fixed scope or T&amp;M — no hidden fees, ever.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-brand-dark py-16 relative overflow-hidden">
+        <div class="absolute inset-0 dot-pattern" style="opacity:.04"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Ready to start your project?</h2>
+            <p class="text-white/60 mb-8 max-w-xl mx-auto">Tell us what you're building. We'll respond within 24 hours.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button type="button" data-open-quote class="bg-brand-yellow text-brand-dark px-8 py-4 rounded-full font-semibold hover:bg-white transition-all duration-300 hover:shadow-xl">
+                    Request a Quote
+                </button>
+                <a href="contact.html" class="border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-brand-dark pt-16 pb-8 relative overflow-hidden">
+        <div class="absolute inset-0 dot-pattern" style="opacity:0.02;"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div class="lg:col-span-1">
+                    <a href="/" class="flex items-center gap-2 mb-4">
+                        <img src="images/Logo.png" alt="Akanofa" class="h-10 w-auto">
+                        <span class="text-xl font-bold text-white">Akanofa</span>
+                    </a>
+                    <p class="text-white/40 text-sm leading-relaxed mb-4">Intelligent software, built for your business. Being your technology company is our one objective.</p>
+                    <div class="text-white/35 text-xs leading-relaxed mb-5 space-y-0.5">
+                        <div class="text-white/60 font-semibold">PT Teknologi Akanofa Mandala</div>
+                        <div>Infiniti Office, Bellezza BSA Lt. 1 Unit 106</div>
+                        <div>Jl. Letjen Soepeno, Kebayoran Lama Utara</div>
+                        <div>Kebayoran Lama, Jakarta Selatan 12210</div>
+                        <div>Tel: <a href="tel:+622158905002" class="hover:text-brand-yellow">021-58905002</a></div>
+                    </div>
+                    <div class="flex gap-3">
+                        <a href="#" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-white/50 hover:bg-brand-yellow hover:text-brand-dark transition-all duration-300"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                        <a href="#" rel="noopener noreferrer" aria-label="Twitter" class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-white/50 hover:bg-brand-yellow hover:text-brand-dark transition-all duration-300"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+                        <a href="#" rel="noopener noreferrer" aria-label="GitHub" class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-white/50 hover:bg-brand-yellow hover:text-brand-dark transition-all duration-300"><i data-lucide="github" class="w-4 h-4"></i></a>
+                        <a href="#" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-white/50 hover:bg-brand-yellow hover:text-brand-dark transition-all duration-300"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-white/40 hover:text-brand-yellow transition-colors text-sm">AI &amp; Machine Learning</a></li>
+                        <li><a href="services.html" class="text-white/40 hover:text-brand-yellow transition-colors text-sm">Cloud Solutions</a></li>
+                        <li><a href="services.html" class="text-white/40 hover:text-brand-yellow transition-colors text-sm">Mobile Development</a></li>
+                        <li><a href="services.html" class="text-white/40 hover:text-brand-yellow transition-colors text-sm">Cybersecurity</a></li>
+                        <li><a href="services.html" class="text-white/40 hover:text-brand-yellow transition-colors text-sm">Data Engineering</a></li>
+                        <li><a href="services.html" class="text-white/40 hover:text-brand-yellow transition-colors text-sm">DevOps &amp; Automation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-white/40 hover:text-brand-yellow transition-colors text-sm">About Us</a></li>
+                        <li><a href="why-us.html" class="text-white/40 hover:text-brand-yellow transition-colors text-sm">Why Choose Us</a></li>
+                        <li><a href="contact.html" class="text-white/40 hover:text-brand-yellow transition-colors text-sm">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Stay Updated</h4>
+                    <p class="text-white/40 text-sm mb-4">Get the latest insights on technology trends.</p>
+                    <form id="newsletterForm" action="https://formsubmit.co/info@akanofa.com" method="POST" class="flex gap-2" autocomplete="off">
+                        <input type="hidden" name="_subject" value="New Newsletter Subscription">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                        <input type="email" name="Subscriber Email" required maxlength="120" autocomplete="email" class="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder-white/30 focus:border-brand-yellow focus:ring-1 focus:ring-brand-yellow outline-none transition-all" placeholder="Your email">
+                        <button type="submit" class="bg-brand-yellow text-brand-dark px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-white transition-all duration-300 shrink-0" aria-label="Subscribe">
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                    <div id="newsletterSuccess" class="hidden text-brand-yellow text-sm mt-2">&#10003; Subscribed!</div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-white/30 text-sm">&copy; 2026 PT Teknologi Akanofa Mandala. All rights reserved. <span class="hidden sm:inline">&middot; KBLI 58200 (Software Publishing) &middot; PMDN</span></p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-white/30 hover:text-brand-yellow transition-colors text-sm">Privacy Policy</a>
+                    <a href="#" class="text-white/30 hover:text-brand-yellow transition-colors text-sm">Terms of Service</a>
+                    <a href="#" class="text-white/30 hover:text-brand-yellow transition-colors text-sm">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top -->
+    <button id="backToTop" class="fixed bottom-24 left-6 w-12 h-12 bg-brand-dark text-brand-yellow rounded-full shadow-lg flex items-center justify-center hover:bg-brand-green transition-all duration-300 opacity-0 pointer-events-none z-40" aria-label="Back to top">
+        <i data-lucide="chevron-up" class="w-6 h-6"></i>
+    </button>
+
+    <!-- Floating WhatsApp (bottom-left) -->
+    <a id="whatsappBtn" href="https://wa.me/6282385449541?text=Hi%20Akanofa%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 z-40 group w-14 h-14 bg-[#25D366] text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-transform" aria-label="Chat on WhatsApp">
+        <span class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30"></span>
+        <svg class="w-7 h-7 relative" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l.6.953-1 3.648 3.748-.982.631.422zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/>
+        </svg>
+    </a>
+
+    <!-- Floating Chatbot (bottom-right) -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+        <div id="chatbotWindow" class="hidden w-80 max-w-[calc(100vw-3rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex-col" style="max-height: 480px;">
+            <div class="bg-gradient-to-r from-brand-dark to-brand-green p-4 flex items-center gap-3">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 overflow-hidden ring-2 ring-white/40">
+                    <img src="images/Logo.png" alt="Akanofa" class="w-full h-full object-contain">
+                </div>
+                <div class="flex-1">
+                    <div class="text-white font-semibold text-sm">Akanofa Assistant</div>
+                    <div class="text-white/60 text-xs flex items-center gap-1">
+                        <span class="w-2 h-2 bg-green-400 rounded-full"></span> Online now
+                    </div>
+                </div>
+                <button id="chatbotClose" class="text-white/70 hover:text-white p-1" aria-label="Close chat">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div id="chatbotMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-brand-cream" style="min-height: 240px; max-height: 280px;"></div>
+            <div class="p-3 border-t border-gray-100 bg-white">
+                <div id="chatbotQuickReplies" class="flex flex-wrap gap-2 mb-3"></div>
+                <a href="https://wa.me/6282385449541?text=Hi%20Akanofa%2C%20I%27d%20like%20to%20talk%20to%20a%20human." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full bg-brand-green text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-brand-dark transition-colors">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    Talk to a human on WhatsApp
+                </a>
+            </div>
+        </div>
+        <button id="chatbotToggle" class="group w-16 h-16 bg-white rounded-full shadow-2xl shadow-brand-dark/30 flex items-center justify-center hover:scale-110 transition-all relative ring-2 ring-brand-green/30 hover:ring-brand-green overflow-hidden" aria-label="Open chat assistant">
+            <span class="absolute inset-0 rounded-full bg-brand-green/20 animate-ping opacity-40"></span>
+            <span class="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 bg-green-400 rounded-full ring-2 ring-white z-10"></span>
+            <img src="images/Logo.png" alt="Akanofa AI" class="w-full h-full object-contain relative p-1" id="chatbotIconOpen">
+            <i data-lucide="x" class="w-6 h-6 hidden text-brand-dark" id="chatbotIconClose"></i>
+        </button>
+    </div>
+    <!-- Get Started / Quote Modal -->
+    <div id="quoteModal" class="hidden fixed inset-0 z-[100] items-center justify-center p-4 modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+        <div class="modal-enter bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto relative">
+            <div class="sticky top-0 bg-gradient-to-r from-brand-dark to-brand-green p-6 flex items-center justify-between z-10">
+                <div>
+                    <h3 id="quoteModalTitle" class="text-white text-xl font-bold">Let's Get Started</h3>
+                    <p class="text-white/70 text-sm mt-1">Tell us about your project — we reply within 24 hours.</p>
+                </div>
+                <button type="button" id="quoteModalClose" class="text-white/80 hover:text-white p-2" aria-label="Close">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form id="quoteForm" action="https://formsubmit.co/info@akanofa.com" method="POST" class="space-y-4" autocomplete="on">
+                    <input type="hidden" name="_subject" value="New Quote Request from Akanofa Website">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-brand-dark mb-1.5">Full Name</label>
+                            <input type="text" name="Name" required maxlength="100" autocomplete="name" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-brand-dark" placeholder="Your name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-brand-dark mb-1.5">Email</label>
+                            <input type="email" name="Email" required maxlength="120" autocomplete="email" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-brand-dark" placeholder="you@company.com">
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-brand-dark mb-1.5">Company</label>
+                            <input type="text" name="Company" maxlength="100" autocomplete="organization" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-brand-dark" placeholder="Optional">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-brand-dark mb-1.5">Phone / WhatsApp</label>
+                            <input type="tel" name="Phone" maxlength="30" autocomplete="tel" pattern="[0-9+\-\s()]*" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-brand-dark" placeholder="Optional">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-brand-dark mb-1.5">Service of Interest</label>
+                        <select name="Service" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-brand-dark">
+                            <option value="" disabled selected>Choose a service</option>
+                            <option>AI &amp; Machine Learning</option>
+                            <option>Cloud Solutions</option>
+                            <option>Mobile Development</option>
+                            <option>Cybersecurity</option>
+                            <option>Data Engineering</option>
+                            <option>DevOps &amp; Automation</option>
+                            <option>Other / Not sure yet</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-brand-dark mb-1.5">Project Brief</label>
+                        <textarea name="Project Brief" rows="3" required maxlength="2000" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 outline-none text-brand-dark resize-none" placeholder="What are you trying to build or solve?"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-dark text-white py-3.5 rounded-xl font-semibold hover:bg-brand-green transition-all duration-300 flex items-center justify-center gap-2 group">
+                        Send Request
+                        <i data-lucide="send" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    <p class="text-xs text-gray-400 text-center">By submitting, you agree to be contacted by Akanofa. We never share your info.</p>
+                </form>
+                <div id="quoteSuccess" class="hidden text-center py-10">
+                    <div class="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="check-circle" class="w-8 h-8 text-brand-green"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-dark mb-2">Request Sent!</h4>
+                    <p class="text-gray-500">We'll reach out within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+            lucide.createIcons();
+
+            // ===== Mobile Menu =====
+            var menuToggle = document.getElementById('menuToggle');
+            var menuClose = document.getElementById('menuClose');
+            var mobileMenu = document.getElementById('mobileMenu');
+            if (menuToggle && menuClose && mobileMenu) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+                menuClose.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+                document.querySelectorAll('.mobile-link').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+
+            // ===== Navbar (solid background, no scroll color swap needed) =====
+
+            // ===== Back to Top =====
+            var backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 400) {
+                        backToTop.classList.remove('opacity-0', 'pointer-events-none');
+                        backToTop.classList.add('opacity-100');
+                    } else {
+                        backToTop.classList.add('opacity-0', 'pointer-events-none');
+                        backToTop.classList.remove('opacity-100');
+                    }
+                });
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // ===== Counter Animation =====
+            var counters = document.querySelectorAll('.counter-value');
+            var counterAnimated = false;
+            function animateCounters() {
+                counters.forEach(function(counter) {
+                    var target = parseInt(counter.getAttribute('data-target'), 10);
+                    if (isNaN(target)) return;
+                    var duration = 2000;
+                    var startTime = performance.now();
+                    function step(currentTime) {
+                        var elapsed = currentTime - startTime;
+                        var progress = Math.min(elapsed / duration, 1);
+                        var ease = 1 - Math.pow(1 - progress, 3);
+                        counter.textContent = String(Math.floor(target * ease));
+                        if (progress < 1) requestAnimationFrame(step);
+                        else counter.textContent = String(target);
+                    }
+                    requestAnimationFrame(step);
+                });
+            }
+            if (counters.length) {
+                var counterObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting && !counterAnimated) {
+                            counterAnimated = true;
+                            animateCounters();
+                        }
+                    });
+                }, { threshold: 0.3 });
+                counters.forEach(function(c) { counterObserver.observe(c); });
+            }
+
+            // ===== Form submit helper (AJAX -> FormSubmit) =====
+            function ajaxSubmit(form, onSuccess, onError) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var btn = form.querySelector('button[type="submit"]');
+                    var originalHTML = btn ? btn.innerHTML : '';
+                    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    }).then(function(r) {
+                        if (!r.ok) throw new Error('Network');
+                        return r.json().catch(function() { return {}; });
+                    }).then(function() {
+                        if (typeof onSuccess === 'function') onSuccess();
+                        form.reset();
+                        lucide.createIcons();
+                    }).catch(function() {
+                        if (typeof onError === 'function') onError();
+                        else alert('Something went wrong. Please email info@akanofa.com directly.');
+                        if (btn) { btn.disabled = false; btn.innerHTML = originalHTML; }
+                        lucide.createIcons();
+                    });
+                });
+            }
+
+            // Newsletter
+            var newsletterForm = document.getElementById('newsletterForm');
+            var newsletterSuccess = document.getElementById('newsletterSuccess');
+            if (newsletterForm) {
+                ajaxSubmit(newsletterForm, function() {
+                    newsletterForm.classList.add('hidden');
+                    if (newsletterSuccess) newsletterSuccess.classList.remove('hidden');
+                }, function() { /* silent */ });
+            }
+
+            // Contact form on contact page
+            var contactForm = document.getElementById('contactForm');
+            var formSuccess = document.getElementById('formSuccess');
+            if (contactForm) {
+                ajaxSubmit(contactForm, function() {
+                    contactForm.classList.add('hidden');
+                    if (formSuccess) formSuccess.classList.remove('hidden');
+                });
+            }
+
+            // ===== Quote Modal =====
+            var quoteModal = document.getElementById('quoteModal');
+            var quoteForm = document.getElementById('quoteForm');
+            var quoteSuccess = document.getElementById('quoteSuccess');
+            var quoteClose = document.getElementById('quoteModalClose');
+            function openQuote() {
+                if (!quoteModal) return;
+                quoteModal.classList.remove('hidden');
+                quoteModal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+                lucide.createIcons();
+            }
+            function closeQuote() {
+                if (!quoteModal) return;
+                quoteModal.classList.add('hidden');
+                quoteModal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+            document.querySelectorAll('[data-open-quote]').forEach(function(btn) {
+                btn.addEventListener('click', openQuote);
+            });
+            if (quoteClose) quoteClose.addEventListener('click', closeQuote);
+            if (quoteModal) quoteModal.addEventListener('click', function(e) {
+                if (e.target === quoteModal) closeQuote();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeQuote();
+            });
+            if (quoteForm) {
+                ajaxSubmit(quoteForm, function() {
+                    quoteForm.classList.add('hidden');
+                    if (quoteSuccess) quoteSuccess.classList.remove('hidden');
+                });
+            }
+
+            // ===== Reveal animations =====
+            var revealObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.gradient-card').forEach(function(el) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                revealObserver.observe(el);
+            });
+
+            // ===== Class-based reveal (.reveal, .reveal-left, .reveal-right, .spiral-svg, .process-card) =====
+            var classReveal = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        classReveal.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .spiral-svg, .process-card').forEach(function(el) {
+                classReveal.observe(el);
+            });
+
+            // ===== Smooth scroll for in-page hashes =====
+            document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    var href = this.getAttribute('href');
+                    var target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        var pos = target.getBoundingClientRect().top + window.pageYOffset - 70;
+                        window.scrollTo({ top: pos, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // ===== Chatbot (safe DOM construction) =====
+            var chatbotToggle = document.getElementById('chatbotToggle');
+            var chatbotWindow = document.getElementById('chatbotWindow');
+            var chatbotClose = document.getElementById('chatbotClose');
+            var chatbotMessages = document.getElementById('chatbotMessages');
+            var chatbotQuickReplies = document.getElementById('chatbotQuickReplies');
+            var iconOpen = document.getElementById('chatbotIconOpen');
+            var iconClose = document.getElementById('chatbotIconClose');
+
+            var botKnowledge = {
+                services: "We offer AI & Machine Learning, Cloud Solutions, Mobile Development, Cybersecurity, Data Engineering, and DevOps & Automation. Visit our Services page for details.",
+                pricing: "Pricing depends on scope. Most projects start with a free discovery call. Tap 'Get Started' to share your brief, or message us on WhatsApp.",
+                contact: "Email: info@akanofa.com. Office: 021-58905002. Or use our Contact page or tap the WhatsApp button to chat.",
+                location: "We're based in Jakarta, Indonesia, serving clients in 15+ countries.",
+                hours: "We respond within 24 hours, Mon–Fri. WhatsApp is fastest for urgent matters.",
+                "default": "I can help with: services, pricing, contact, location, or response times. Tap WhatsApp below to chat with a human."
+            };
+
+            var quickReplies = [
+                { label: 'Our Services', key: 'services' },
+                { label: 'Pricing', key: 'pricing' },
+                { label: 'Contact Info', key: 'contact' },
+                { label: 'Location', key: 'location' },
+                { label: 'Response Time', key: 'hours' }
+            ];
+
+            function el(tag, cls, text) {
+                var n = document.createElement(tag);
+                if (cls) n.className = cls;
+                if (text != null) n.textContent = text;
+                return n;
+            }
+
+            function addBotMessage(text) {
+                var wrap = el('div', 'flex gap-2 items-start');
+                var avatar = el('div', 'w-7 h-7 bg-white rounded-full flex items-center justify-center shrink-0 mt-0.5 overflow-hidden ring-1 ring-brand-green/20');
+                var img = document.createElement('img');
+                img.src = 'images/Logo.png';
+                img.alt = 'Akanofa';
+                img.className = 'w-full h-full object-contain';
+                avatar.appendChild(img);
+                var bubble = el('div', 'bg-white rounded-2xl rounded-tl-sm px-3 py-2 text-sm text-brand-dark shadow-sm max-w-[85%]', text);
+                wrap.appendChild(avatar);
+                wrap.appendChild(bubble);
+                chatbotMessages.appendChild(wrap);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+
+            function addUserMessage(text) {
+                var wrap = el('div', 'flex justify-end');
+                wrap.appendChild(el('div', 'bg-brand-dark text-white rounded-2xl rounded-tr-sm px-3 py-2 text-sm max-w-[85%]', text));
+                chatbotMessages.appendChild(wrap);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+
+            function renderQuickReplies() {
+                chatbotQuickReplies.textContent = '';
+                quickReplies.forEach(function(qr) {
+                    var btn = el('button', 'text-xs bg-brand-yellow-light text-brand-dark px-3 py-1.5 rounded-full hover:bg-brand-yellow transition-colors font-medium', qr.label);
+                    btn.type = 'button';
+                    btn.addEventListener('click', function() {
+                        addUserMessage(qr.label);
+                        setTimeout(function() {
+                            addBotMessage(botKnowledge[qr.key] || botKnowledge['default']);
+                        }, 350);
+                    });
+                    chatbotQuickReplies.appendChild(btn);
+                });
+            }
+
+            var chatInitialized = false;
+            function openChat() {
+                chatbotWindow.classList.remove('hidden');
+                chatbotWindow.classList.add('flex');
+                if (iconOpen) iconOpen.classList.add('hidden');
+                if (iconClose) iconClose.classList.remove('hidden');
+                if (!chatInitialized) {
+                    addBotMessage("👋 Hi there! I'm Akanofa's virtual assistant. How can I help today?");
+                    renderQuickReplies();
+                    chatInitialized = true;
+                }
+            }
+            function closeChat() {
+                chatbotWindow.classList.add('hidden');
+                chatbotWindow.classList.remove('flex');
+                if (iconOpen) iconOpen.classList.remove('hidden');
+                if (iconClose) iconClose.classList.add('hidden');
+            }
+            if (chatbotToggle) chatbotToggle.addEventListener('click', function() {
+                if (chatbotWindow.classList.contains('hidden')) openChat();
+                else closeChat();
+            });
+            if (chatbotClose) chatbotClose.addEventListener('click', closeChat);
+        })();
+    </script>
+</body>
+</html>
